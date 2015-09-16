@@ -1,0 +1,31 @@
+{
+  "name": "atomclinic",
+  "version": "1.0.0",
+  "description": "clinic app written in electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlhkh/atomclinic.git"
+  },
+  "author": "Kha Nguyen <nlhkha@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nlhkh/atomclinic/issues"
+  },
+  "homepage": "https://github.com/nlhkh/atomclinic#readme",
+  "dependencies": {
+    "alt": "^0.17.3",
+    "babel": "^5.8.23",
+    "react": "^0.13.3",
+    "react-portal": "^0.7.0",
+    "react-router": "^0.13.3",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.32.3"
+  }
+}
