@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 
-import Store from '../store';
-import Actions from '../actions';
+import Store from '../stores/patientStore';
+import Actions from '../actions/patientActions';
 import Patient from './patient';
 
 class PatientList extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PatientForm from './_patientForm';
-import Actions from '../actions';
+import Actions from '../actions/patientActions';
 
 class NewPatient extends Component {
 

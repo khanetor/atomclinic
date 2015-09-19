@@ -1,5 +1,5 @@
-import alt from './alt';
-import Actions from './actions';
+import alt from '../alt';
+import Actions from '../actions/patientActions';
 import _ from 'underscore';
 
 class ClinicStore {
@@ -12,28 +12,7 @@ class ClinicStore {
     });
 
     this.state = {
-      patients: [
-        // {
-        //   _id: '0',
-        //   name: 'Joe',
-        //   dob: {
-        //     day: 1,
-        //     month: 0,
-        //     year: 1988
-        //   },
-        //   address: 'n/a'
-        // },
-        // {
-        //   _id: '1',
-        //   name: 'Merry',
-        //   dob: {
-        //     day: 1,
-        //     month: 0,
-        //     year: 1988
-        //   },
-        //   address: 'n/a'
-        // }
-      ]
+      patients: []
     };
   }
 

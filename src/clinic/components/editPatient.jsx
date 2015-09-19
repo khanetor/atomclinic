@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import _ from 'underscore';
 import PatientForm from './_patientForm';
-import Actions from '../actions';
-import Store from '../store';
+import Actions from '../actions/patientActions';
+import Store from '../stores/patientStore';
 
 class EditPatient extends Component {
   static getStores() {

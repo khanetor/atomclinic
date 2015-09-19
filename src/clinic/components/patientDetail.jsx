@@ -5,8 +5,8 @@ import _ from 'underscore';
 
 import {months} from '../../addons/date';
 
-import Store from '../store';
-import Actions from '../actions';
+import Store from '../stores/patientStore';
+import Actions from '../actions/patientActions';
 
 class PatientDetail extends Component {
   static getStores() {
@@ -29,7 +29,7 @@ class PatientDetail extends Component {
           <div>
             <button onClick={Actions.deletePatient.bind(null, patient._id)}>Delete</button>
             <Link className='button' to='editPatient' params={{id: patient._id}}>Edit</Link>
-            <button>Visits</button>
+            <Link className='button' to='patientVisits' params={{id: patient._id}}>Visits</Link>
           </div>
         </div>
       );
