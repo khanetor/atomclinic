@@ -1,5 +1,5 @@
 import React from 'react';
-import Router, { Route } from 'react-router';
+import Router, { Route, Redirect } from 'react-router';
 
 import ClinicApp from './components/index';
 import Welcome from './components/welcome';
@@ -11,6 +11,7 @@ let routes = (
     <Route name='welcome' handler={Welcome} />
     <Route name='newPatient' handler={NewPatient} />
     <Route name='patientDetail' path='patientDetail/:id' handler={PatientDetail} />
+    <Redirect to='welcome' />
   </Route>
 );
 
