@@ -11,30 +11,33 @@ class ClinicActions {
   constructor() {
     this.generateActions(
       'createNewPatientCompleted',
+      'updatePatientCompleted',
       'loadPatientsCompleted',
       'deletePatientCompleted'
     );
   }
 
-  createNewPatient(newPatient) {
+  createNewPatient(newPatient, successCallback) {
     newPatient = _.extend(newPatient, {type: 'patient'});
     db.insert(newPatient, (err, insertedPatient) => {
       if (err) {
         alert('Error - Cannot create new patient.');
       } else {
         this.actions.createNewPatientCompleted(insertedPatient);
+        successCallback(insertedPatient);
       }
     });
   }
 
-  loadPatients() {
-    db.find({type: 'patient'}, (err, patients) => {
+  updatePatient(patient, successCallback) {
+    db.update({_id: patient._id}, patient, {}, (err, count) => {
       if (err) {
-        alert('Error - Cannot load patients.');
+        alert('Error - Cannot update this patient.');
       } else {
-        this.actions.loadPatientsCompleted(patients);
+        this.actions.updatePatientCompleted(patient);
+        successCallback(patient);
       }
-    })
+    });
   }
 
   deletePatient(id) {
@@ -43,6 +46,16 @@ class ClinicActions {
         alert('Error - Cannot delete this patient.');
       } else {
         this.actions.deletePatientCompleted(id);
+      }
+    })
+  }
+
+  loadPatients() {
+    db.find({type: 'patient'}, (err, patients) => {
+      if (err) {
+        alert('Error - Cannot load patients.');
+      } else {
+        this.actions.loadPatientsCompleted(patients);
       }
     })
   }

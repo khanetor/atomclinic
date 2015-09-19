@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import connectToStores from 'alt/utils/connectToStores';
 import _ from 'underscore';
 
@@ -23,11 +24,11 @@ class PatientDetail extends Component {
       return (
         <div>
           <label>Name: {patient.name}</label>
-          <label>Address: {patient.address}</label>
           <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
+          <label>Address: {patient.address}</label>
           <div>
             <button onClick={Actions.deletePatient.bind(null, patient._id)}>Delete</button>
-            <button>Edit</button>
+            <Link className='button' to='editPatient' params={{id: patient._id}}>Edit</Link>
             <button>Visit</button>
           </div>
         </div>
