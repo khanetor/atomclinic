@@ -17,16 +17,19 @@ class PatientDetail extends Component {
   }
 
   render() {
-    let id = parseInt(this.props.params.id);
+    let id = this.props.params.id;
     let patient = _.first(_.filter(this.props.patients, patient => patient.id === id));
-
-    return (
-      <div>
-        <label>Name: {patient.name}</label>
-        <label>Address: {patient.address}</label>
-        <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
-      </div>
-    )
+    if (patient) {
+      return (
+        <div>
+          <label>Name: {patient.name}</label>
+          <label>Address: {patient.address}</label>
+          <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
+        </div>
+      );
+    } else {
+      return (<div><label>Patient not found</label></div>);
+    }
   }
 }
 

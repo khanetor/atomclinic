@@ -5,7 +5,7 @@ class Patient extends Component {
   render() {
     return (
       <div>
-        <Link className='button menu-item' to='patientDetail' params={{id: this.props.info.id}}>
+        <Link className='button menu-item' to='patientDetail' params={{id: this.props.info._id}}>
           <label>{this.props.info.name}</label>
         </Link>
       </div>
@@ -15,7 +15,7 @@ class Patient extends Component {
 
 Patient.propTypes = {
   info: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.string,
     name: PropTypes.string
   })
 };

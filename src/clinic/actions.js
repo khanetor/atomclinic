@@ -1,18 +1,39 @@
 import alt from './alt';
-import PouchDB from 'pouchdb';
+import NEDB from 'nedb';
+import _ from 'underscore';
+
+const db = new NEDB({
+  filename: '../clinicdb',
+  autoload: true
+});
 
 class ClinicActions {
   constructor() {
     this.generateActions(
-      'createNewPatientCompleted'
+      'createNewPatientCompleted',
+      'loadPatientsCompleted'
     );
   }
 
   createNewPatient(newPatient) {
-    this.actions.createNewPatientCompleted(newPatient);
-    // setTimeout(() => {
-    //   this.actions.createNewPatientCompleted(newPatient);
-    // }, 0);
+    newPatient = _.extend(newPatient, {type: 'patient'});
+    db.insert(newPatient, (err, insertedPatient) => {
+      if (err) {
+        alert('Error creating new patient');
+      } else {
+        this.actions.createNewPatientCompleted(insertedPatient);
+      }
+    });
+  }
+
+  loadPatients() {
+    db.find({type: 'patient'}, (err, patients) => {
+      if (err) {
+        alert('Load patients failed');
+      } else {
+        this.actions.loadPatientsCompleted(patients);
+      }
+    })
   }
 }
 

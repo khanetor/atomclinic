@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 
 import Store from '../store';
+import Actions from '../actions';
 import Patient from './patient';
 
 class PatientList extends Component {
@@ -13,8 +14,12 @@ class PatientList extends Component {
     return Store.getState();
   }
 
+  componentDidMount() {
+    Actions.loadPatients();
+  }
+
   render() {
-    let patients = this.props.patients.map(patient => <li key={patient.id}><Patient info={patient} /></li>)
+    let patients = this.props.patients.map(patient => <li key={patient._id}><Patient info={patient} /></li>)
     return (
       <div id='patientList'>
         <ul>
