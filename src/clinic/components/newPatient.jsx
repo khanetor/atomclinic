@@ -4,35 +4,36 @@ import React, { Component } from 'react';
 import _ from 'underscore';
 
 import Actions from '../actions';
-
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
-
-const days = _.range(1, 32);
-
-const years = _.range(1900, new Date().getFullYear() + 1);
+import {months, days, years} from '../../addons/date';
 
 class NewPatient extends Component {
 
   createNewPatient(e) {
     e.preventDefault();
     let name = React.findDOMNode(this.refs.name).value;
-    let month = React.findDOMNode(this.refs.month).value;
-    let day = React.findDOMNode(this.refs.day).value;
-    let year = React.findDOMNode(this.refs.year).value;
+    let month = parseInt(React.findDOMNode(this.refs.month).value);
+    let day = parseInt(React.findDOMNode(this.refs.day).value);
+    let year = parseInt(React.findDOMNode(this.refs.year).value);
     let address = React.findDOMNode(this.refs.address).value;
+
+    // validate name
+    if (!name) {
+      alert('Name is missing.');
+      return;
+    }
+
+    // validate address
+    if (!address) {
+      alert('Address is missing.');
+      return;
+    }
+
+    // validate date of birth
+    let dob = new Date(year, month, day);
+    if (dob.getFullYear() !== year || dob.getMonth() !== month || dob.getDate() !== day) {
+      alert('Invalid date of birth');
+      return;
+    }
 
     let newPatient = {name, dob: {month, day, year}, address};
 
@@ -40,7 +41,7 @@ class NewPatient extends Component {
   }
 
   render() {
-    let monthOptions = months.map((month, i) => <option key={i} value={i+1}>{month}</option>);
+    let monthOptions = months.map((month, i) => <option key={i} value={i}>{month}</option>);
     let dayOptions = days.map(day => <option key={day} value={day}>{day}</option>);
     let yearOptions = years.map(year =><option key={year} value={year}>{year}</option>);
 

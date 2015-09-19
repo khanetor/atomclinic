@@ -1,5 +1,6 @@
 import alt from './alt';
 import Actions from './actions';
+import _ from 'underscore';
 
 class ClinicStore {
   constructor() {
@@ -10,21 +11,34 @@ class ClinicStore {
     this.state = {
       patients: [
         {
-          id: 1,
-          name: 'Joe'
+          id: 0,
+          name: 'Joe',
+          dob: {
+            day: 1,
+            month: 0,
+            year: 1988
+          },
+          address: 'n/a'
         },
         {
-          id: 2,
-          name: 'Merry'
+          id: 1,
+          name: 'Merry',
+          dob: {
+            day: 1,
+            month: 0,
+            year: 1988
+          },
+          address: 'n/a'
         }
       ]
     };
   }
 
   createNewPatientCompleted(newPatient) {
-    let patients = this.state.patients.push(newPatient);
+    newPatient = _.extend(newPatient, {id: this.state.patients.length});
+    console.log(newPatient);
+    let patients = this.state.patients.concat(newPatient);
     this.setState({patients: patients});
-    alert(213);
   }
 }
 

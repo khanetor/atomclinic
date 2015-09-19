@@ -5,9 +5,9 @@ class Patient extends Component {
   render() {
     return (
       <div>
-        <label>Name: </label>
-        <span>{this.props.info.name}</span>
-        <Link className='button' to='patientDetail'>Detail</Link>
+        <Link className='button' to='patientDetail' params={{id: this.props.info.id}}>
+          <label>{this.props.info.name}</label>
+        </Link>
       </div>
     )
   }

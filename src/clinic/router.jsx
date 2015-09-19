@@ -8,7 +8,7 @@ import PatientDetail from './components/patientDetail';
 let routes = (
   <Route path='/' handler={ClinicApp}>
     <Route name='newPatient' handler={NewPatient} />
-    <Route name='patientDetail' handler={PatientDetail} />
+    <Route name='patientDetail' path='patientDetail/:id' handler={PatientDetail} />
   </Route>
 );
 
