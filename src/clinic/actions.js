@@ -35,6 +35,10 @@ class ClinicActions {
       }
     })
   }
+
+  deletePatient(id) {
+    alert(id);
+  }
 }
 
 export default alt.createActions(ClinicActions);

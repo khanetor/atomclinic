@@ -8,7 +8,7 @@ class ClinicApp extends Component {
     return (
       <div className='container'>
         <div className='row'>
-          <h3 className='u-pull-left'>Private Clinic</h3>
+          <Link to='welcome'><h3 className='u-pull-left'>Private Clinic</h3></Link>
           <div className='u-pull-right'>
             <Link className='button button-primary vertical-center' to='newPatient'>+ New Patient</Link>
           </div>

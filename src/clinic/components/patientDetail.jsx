@@ -25,6 +25,11 @@ class PatientDetail extends Component {
           <label>Name: {patient.name}</label>
           <label>Address: {patient.address}</label>
           <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
+          <div>
+            <button onClick={Actions.deletePatient.bind(null, patient._id)}>Delete</button>
+            <button>Edit</button>
+            <button>Visit</button>
+          </div>
         </div>
       );
     } else {
