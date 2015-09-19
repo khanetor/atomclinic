@@ -25,7 +25,7 @@ app.on('ready', () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 960,
-    height: 600
+    height: 620
   });
 
   // and load the index.html of the app.

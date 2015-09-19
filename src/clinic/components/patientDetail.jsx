@@ -29,7 +29,7 @@ class PatientDetail extends Component {
           <div>
             <button onClick={Actions.deletePatient.bind(null, patient._id)}>Delete</button>
             <Link className='button' to='editPatient' params={{id: patient._id}}>Edit</Link>
-            <button>Visit</button>
+            <button>Visits</button>
           </div>
         </div>
       );

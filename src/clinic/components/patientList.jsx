@@ -22,7 +22,7 @@ class PatientList extends Component {
     let patients = this.props.patients.map(patient => <li key={patient._id}><Patient info={patient} /></li>)
     return (
       <div id='patientList'>
-        <ul>
+        <ul className='scrollable'>
           {patients}
         </ul>
       </div>
