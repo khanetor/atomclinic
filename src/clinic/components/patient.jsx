@@ -5,7 +5,7 @@ class Patient extends Component {
   render() {
     return (
       <div>
-        <Link className='button' to='patientDetail' params={{id: this.props.info.id}}>
+        <Link className='button menu-item' to='patientDetail' params={{id: this.props.info.id}}>
           <label>{this.props.info.name}</label>
         </Link>
       </div>

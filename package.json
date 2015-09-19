@@ -20,6 +20,7 @@
   "dependencies": {
     "alt": "^0.17.3",
     "babel": "^5.8.23",
+    "pouchdb": "^4.0.3",
     "react": "^0.13.3",
     "react-portal": "^0.7.0",
     "react-router": "^0.13.3",

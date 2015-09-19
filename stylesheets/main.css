@@ -1,0 +1,8 @@
+.menu-item.active {
+  color: #ffffff;
+  background-color: #1ba720;
+}
+
+.button.vertical-center {
+  margin-top: 0.5rem;
+}

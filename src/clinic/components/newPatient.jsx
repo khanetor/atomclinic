@@ -47,21 +47,21 @@ class NewPatient extends Component {
 
     return (
       <form onSubmit={this.createNewPatient.bind(this)}>
-        <h1>New Patient</h1>
-        <input type='text' placeholder='name' ref='name' />
-        <div>
-          <select ref='month'>
+        <h5>New Patient</h5>
+        <input className='u-full-width' type='text' placeholder='name' ref='name' />
+        <div className='row'>
+          <select ref='month' className='three columns'>
             {monthOptions}
           </select>
-          <select ref='day'>
+          <select ref='day' className='two columns'>
             {dayOptions}
           </select>
-          <select defaultValue='2015' ref='year'>
+          <select defaultValue='2015' ref='year' className='two columns'>
             {yearOptions}
           </select>
         </div>
-        <textarea placeholder='address' ref='address' />
-        <input type='submit' value='Save' />
+        <textarea className='u-full-width' placeholder='address' ref='address' />
+        <input className='button-primary' type='submit' value='Save' />
       </form>
     );
   }

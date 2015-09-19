@@ -1,4 +1,5 @@
 import alt from './alt';
+import PouchDB from 'pouchdb';
 
 class ClinicActions {
   constructor() {

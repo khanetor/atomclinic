@@ -7,10 +7,12 @@ class ClinicApp extends Component {
   render() {
     return (
       <div className='container'>
-        <h1 className='row'>
-          Private Clinic
-          <Link className='button u-pull-right' to='newPatient'>+ New Patient</Link>
-        </h1>
+        <div className='row'>
+          <h3 className='u-pull-left'>Private Clinic</h3>
+          <div className='u-pull-right'>
+            <Link className='button button-primary vertical-center' to='newPatient'>+ New Patient</Link>
+          </div>
+        </div>
         <div className='row'>
           <div className='three columns'>
             <PatientList />
