@@ -1,12 +1,13 @@
 import alt from './alt';
 import Actions from './actions';
-import _ from 'underscore';
+// import _ from 'underscore';
 
 class ClinicStore {
   constructor() {
     this.bindListeners({
       createNewPatientCompleted: Actions.createNewPatientCompleted,
-      loadPatientsCompleted: Actions.loadPatientsCompleted
+      loadPatientsCompleted: Actions.loadPatientsCompleted,
+      deletePatientCompleted: Actions.deletePatientCompleted
     });
 
     this.state = {
@@ -41,6 +42,11 @@ class ClinicStore {
   }
 
   loadPatientsCompleted(patients) {
+    this.setState({patients});
+  }
+
+  deletePatientCompleted(id) {
+    let patients = this.state.patients.filter(patient => patient._id !== id);
     this.setState({patients});
   }
 }

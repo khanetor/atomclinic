@@ -11,7 +11,8 @@ class ClinicActions {
   constructor() {
     this.generateActions(
       'createNewPatientCompleted',
-      'loadPatientsCompleted'
+      'loadPatientsCompleted',
+      'deletePatientCompleted'
     );
   }
 
@@ -19,7 +20,7 @@ class ClinicActions {
     newPatient = _.extend(newPatient, {type: 'patient'});
     db.insert(newPatient, (err, insertedPatient) => {
       if (err) {
-        alert('Error creating new patient');
+        alert('Error - Cannot create new patient.');
       } else {
         this.actions.createNewPatientCompleted(insertedPatient);
       }
@@ -29,7 +30,7 @@ class ClinicActions {
   loadPatients() {
     db.find({type: 'patient'}, (err, patients) => {
       if (err) {
-        alert('Load patients failed');
+        alert('Error - Cannot load patients.');
       } else {
         this.actions.loadPatientsCompleted(patients);
       }
@@ -37,7 +38,13 @@ class ClinicActions {
   }
 
   deletePatient(id) {
-    alert(id);
+    db.remove({type: 'patient', _id: id}, {}, (err, count) => {
+      if (err) {
+        alert('Error - Cannot delete this patient.');
+      } else {
+        this.actions.deletePatientCompleted(id);
+      }
+    })
   }
 }
 
