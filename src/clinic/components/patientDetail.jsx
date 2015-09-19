@@ -18,7 +18,7 @@ class PatientDetail extends Component {
 
   render() {
     let id = this.props.params.id;
-    let patient = _.first(_.filter(this.props.patients, patient => patient.id === id));
+    let patient = _.first(_.filter(this.props.patients, patient => patient._id === id));
     if (patient) {
       return (
         <div>
