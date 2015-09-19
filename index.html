@@ -3,13 +3,15 @@
   <head>
     <meta charset='utf-8'>
     <title>Private Clinic</title>
+    <link rel='stylesheet' type='text/css' href='node_modules/skeleton-css/css/normalize.css'>
+    <link rel='stylesheet' type='text/css' href='node_modules/skeleton-css/css/skeleton.css'>
   </head>
   <body>
-    <h1>Private Clinic</h1>
-    <div id='container'></div>
+    <div id='app'></div>
 
     <script type='text/javascript'>
-      require('./src/index.js');
+      require('babel/register');
+      require('./src/clinic/index');
     </script>
   </body>
 </html>

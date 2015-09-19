@@ -24,13 +24,13 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 960,
     height: 600
   });
 
   // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
-  
+  mainWindow.loadUrl(`file://${__dirname}/index.html`);
+
   // Open the DevTools.
   mainWindow.openDevTools();
 

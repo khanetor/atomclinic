@@ -1,41 +1,67 @@
+'use strict';
+
 import React, { Component } from 'react';
-import Modal from '../../addons/modal';
+import _ from 'underscore';
+
+import Actions from '../actions';
+
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+
+const days = _.range(1, 32);
+
+const years = _.range(1900, new Date().getFullYear() + 1);
 
 class NewPatient extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpened: false
-    };
-  }
 
-  open() {
-    this.setState({isOpened: true});
-  }
-
-  close() {
-    this.setState({isOpened: false});
-  }
-
-  save() {
+  createNewPatient(e) {
+    e.preventDefault();
     let name = React.findDOMNode(this.refs.name).value;
-    let dob = React.findDOMNode(this.refs.dob).value;
-    console.log(typeof dob);
-    this.close();
+    let month = React.findDOMNode(this.refs.month).value;
+    let day = React.findDOMNode(this.refs.day).value;
+    let year = React.findDOMNode(this.refs.year).value;
+    let address = React.findDOMNode(this.refs.address).value;
+
+    let newPatient = {name, dob: {month, day, year}, address};
+
+    Actions.createNewPatient(newPatient);
   }
 
   render() {
+    let monthOptions = months.map((month, i) => <option key={i} value={i+1}>{month}</option>);
+    let dayOptions = days.map(day => <option key={day} value={day}>{day}</option>);
+    let yearOptions = years.map(year =><option key={year} value={year}>{year}</option>);
+
     return (
-      <div>
-        <button onClick={this.open.bind(this)}>New Patient</button>
-        <Modal isOpened={this.state.isOpened} closeOnEsc onClose={this.close.bind(this)}>
-          <div>
-            <input type='text' placeholder='name' ref='name' /><br />
-            <input type='date' placeholder='dob' ref='dob' /><br />
-            <button onClick={this.save.bind(this)}>Save</button>
-          </div>
-        </Modal>
-      </div>
+      <form onSubmit={this.createNewPatient.bind(this)}>
+        <h1>New Patient</h1>
+        <input type='text' placeholder='name' ref='name' />
+        <div>
+          <select ref='month'>
+            {monthOptions}
+          </select>
+          <select ref='day'>
+            {dayOptions}
+          </select>
+          <select defaultValue='2015' ref='year'>
+            {yearOptions}
+          </select>
+        </div>
+        <textarea placeholder='address' ref='address' />
+        <input type='submit' value='Save' />
+      </form>
     );
   }
 }

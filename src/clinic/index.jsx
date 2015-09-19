@@ -1,5 +1,5 @@
 import React from 'react';
 
-import ClinicApp from './components/index';
+import router from './router';
 
-React.render(<ClinicApp />, document.getElementById('container'));
+router.run(Handler => React.render(<Handler />, document.getElementById('app')));

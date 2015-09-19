@@ -3,6 +3,10 @@ import Actions from './actions';
 
 class ClinicStore {
   constructor() {
+    this.bindListeners({
+      createNewPatientCompleted: Actions.createNewPatientCompleted
+    });
+
     this.state = {
       patients: [
         {
@@ -14,7 +18,13 @@ class ClinicStore {
           name: 'Merry'
         }
       ]
-    }
+    };
+  }
+
+  createNewPatientCompleted(newPatient) {
+    let patients = this.state.patients.push(newPatient);
+    this.setState({patients: patients});
+    alert(213);
   }
 }
 

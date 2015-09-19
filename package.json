@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "electron": "electron ."
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "react": "^0.13.3",
     "react-portal": "^0.7.0",
     "react-router": "^0.13.3",
+    "skeleton-css": "^2.0.4",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
