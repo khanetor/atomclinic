@@ -21,6 +21,11 @@ ul.no-bullet {
   list-style-type: none;
 }
 
+button.danger {
+  color: #ffffff;
+  background-color: #df3c3c;
+}
+
 .button.danger {
   color: #ffffff;
   background-color: #df3c3c;

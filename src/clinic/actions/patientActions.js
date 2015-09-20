@@ -19,7 +19,7 @@ class PatientActions {
         alert('Error - Cannot create new patient.');
       } else {
         this.actions.createNewPatientCompleted(insertedPatient);
-        successCallback(insertedPatient);
+        if (successCallback) successCallback(insertedPatient);
       }
     });
   }
@@ -30,12 +30,12 @@ class PatientActions {
         alert('Error - Cannot update this patient.');
       } else {
         this.actions.updatePatientCompleted(patient);
-        successCallback(patient);
+        if (successCallback) successCallback(patient);
       }
     });
   }
 
-  deletePatient(id) {
+  deletePatient(id, successCallback) {
     let confirm = window.confirm('Are you sure?');
     if (confirm) {
       db.remove({type: 'patient', _id: id}, {}, (err, count) => {
@@ -43,6 +43,7 @@ class PatientActions {
           alert('Error - Cannot delete this patient.');
         } else {
           this.actions.deletePatientCompleted(id);
+          if (successCallback) successCallback();
         }
       });
     }

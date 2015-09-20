@@ -6,20 +6,35 @@ class VisitActions {
   constructor() {
     this.generateActions(
       'loadVisitsCompleted',
-      'createNewVisitCompleted'
+      'createNewVisitCompleted',
+      'deleteVisitCompleted'
     );
   }
 
-  createNewVisit(newVisit, successCallBack) {
+  createNewVisit(newVisit, successCallback) {
     newVisit = _.extend(newVisit, {type: 'visit'});
     db.insert(newVisit, (err, insertedVisit) => {
       if (err) {
         alert('Error - Cannot create new visit.');
       } else {
         this.actions.createNewVisitCompleted(newVisit);
-        successCallBack(insertedVisit);
+        if (successCallback) successCallback(insertedVisit);
       }
     });
+  }
+
+  deleteVisit(id, successCallback) {
+    let confirm = window.confirm('Are you sure?');
+    if (confirm) {
+      db.remove({type: 'visit', _id: id}, {}, (err, count) => {
+        if (err) {
+          alert('Error - Cannot delete this visit.');
+        } else {
+          this.actions.deleteVisitCompleted(id);
+          if (successCallback) successCallback();
+        }
+      });
+    }
   }
 
   loadVisits() {

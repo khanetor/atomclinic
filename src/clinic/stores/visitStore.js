@@ -5,6 +5,7 @@ class VisitStore {
   constructor() {
     this.bindListeners({
       createNewVisitCompleted: Actions.createNewVisitCompleted,
+      deleteVisitCompleted: Actions.deleteVisitCompleted,
       loadVisitsCompleted: Actions.loadVisitsCompleted
     });
 
@@ -19,6 +20,11 @@ class VisitStore {
 
   createNewVisitCompleted(newVisit) {
     let visits = this.state.visits.concat(newVisit);
+    this.setState({visits});
+  }
+
+  deleteVisitCompleted(id) {
+    let visits = this.state.visits.filter(visit => visit._id !== id);
     this.setState({visits});
   }
 }
