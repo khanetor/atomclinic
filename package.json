@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "pack": "electron-packager . atomclinic --platform=all --arch=x64 --version=0.33.0 --ignore=electron-*,.git* --asar",
+    "cleanup": "rm -rf atomclinic-*-x64",
+    "pack": "electron-packager . atomclinic --platform=all --arch=x64 --version=0.33.0 --ignore=electron-*,.git* --asar --icon=./icons/noun_38389_cc.png",
     "rebuild": "electron-rebuild"
   },
   "repository": {
