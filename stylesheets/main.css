@@ -30,3 +30,11 @@ ul.no-bullet {
   color: #ffffff;
   background-color: #9f46d0;
 }
+
+.column.fee {
+  text-align: right;
+}
+
+.columns.fee {
+  text-align: right;
+}

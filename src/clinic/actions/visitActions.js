@@ -5,6 +5,7 @@ import db from '../db';
 class VisitActions {
   constructor() {
     this.generateActions(
+      'loadVisitsCompleted',
       'createNewVisitCompleted'
     );
   }
@@ -19,6 +20,16 @@ class VisitActions {
         successCallBack(insertedVisit);
       }
     });
+  }
+
+  loadVisits() {
+    db.find({type: 'visit'}, (err, visits) => {
+      if (err) {
+        alert('Error - Cannot load visits.');
+      } else {
+        this.actions.loadVisitsCompleted(visits);
+      }
+    })
   }
 }
 

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import Store from '../stores/visitStore';
-import Actions from '../actions/visitActions';
 import Visit from './visit';
 
 class VisitList extends Component {
@@ -15,9 +14,23 @@ class VisitList extends Component {
 
   render() {
     let patientId = this.props.patientId;
-    let visits = this.props.visits.filter(visit => visit._patient_id === patientId).map(visit => <Visit key={visit._id} />)
+    let visits = this.props.visits.filter(visit => visit._patient_id === patientId).map(visit => <Visit key={visit._id} visit={visit} />)
     return (
       <div>
+        <div className='row'>
+          <div className='two columns'>
+            Date
+          </div>
+          <div className='three columns'>
+            Symptom
+          </div>
+          <div className='four columns'>
+            Treatment
+          </div>
+          <div className='three columns fee'>
+            Fee
+          </div>
+        </div>
         {visits}
       </div>
     );

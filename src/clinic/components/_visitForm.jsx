@@ -62,7 +62,7 @@ class VisitForm extends Component {
     }
 
     this.props.formAction(newVisit, (insertedVisit) => {
-      router.transitionTo('patientVisitDetail', {id: insertedVisit._id});
+      router.transitionTo('patientVisitDetail', {id: insertedVisit._patient_id, visitId: insertedVisit._id});
     });
   }
 

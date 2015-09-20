@@ -4,27 +4,17 @@ import Actions from '../actions/visitActions';
 class VisitStore {
   constructor() {
     this.bindListeners({
-      createNewVisitCompleted: Actions.createNewVisitCompleted
+      createNewVisitCompleted: Actions.createNewVisitCompleted,
+      loadVisitsCompleted: Actions.loadVisitsCompleted
     });
 
     this.state = {
-      visits: [
-        {
-          _id: '21313sadad',
-          _patient_id: 'O0JzkrxpMym3Ca8C',
-          type: 'visit',
-          date: {
-            year: 2015,
-            month: 12,
-            day: 6
-          },
-          symptom: 'asdad',
-          test: '21323',
-          treatment: '12dfdad',
-          fee: 100000
-        }
-      ]
+      visits: []
     };
+  }
+
+  loadVisitsCompleted(visits) {
+    this.setState({visits});
   }
 
   createNewVisitCompleted(newVisit) {
