@@ -1,13 +1,8 @@
 import alt from '../alt';
-import NEDB from 'nedb';
 import _ from 'underscore';
+import db from '../db';
 
-const db = new NEDB({
-  filename: '../clinicdb',
-  autoload: true
-});
-
-class ClinicActions {
+class PatientActions {
   constructor() {
     this.generateActions(
       'createNewPatientCompleted',
@@ -41,13 +36,16 @@ class ClinicActions {
   }
 
   deletePatient(id) {
-    db.remove({type: 'patient', _id: id}, {}, (err, count) => {
-      if (err) {
-        alert('Error - Cannot delete this patient.');
-      } else {
-        this.actions.deletePatientCompleted(id);
-      }
-    })
+    let confirm = window.confirm('Are you sure?');
+    if (confirm) {
+      db.remove({type: 'patient', _id: id}, {}, (err, count) => {
+        if (err) {
+          alert('Error - Cannot delete this patient.');
+        } else {
+          this.actions.deletePatientCompleted(id);
+        }
+      });
+    }
   }
 
   loadPatients() {
@@ -61,4 +59,4 @@ class ClinicActions {
   }
 }
 
-export default alt.createActions(ClinicActions);
+export default alt.createActions(PatientActions);

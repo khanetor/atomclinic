@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, RouteHandler } from 'react-router';
 import connectToStores from 'alt/utils/connectToStores';
 import _ from 'underscore';
 
@@ -23,14 +23,19 @@ class PatientDetail extends Component {
     if (patient) {
       return (
         <div>
-          <label>Name: {patient.name}</label>
-          <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
-          <label>Address: {patient.address}</label>
-          <div>
-            <button onClick={Actions.deletePatient.bind(null, patient._id)}>Delete</button>
-            <Link className='button' to='editPatient' params={{id: patient._id}}>Edit</Link>
-            <Link className='button' to='patientVisits' params={{id: patient._id}}>Visits</Link>
+          <div className='row'>
+            <div className='six columns'>
+              <label>Name: {patient.name}</label>
+              <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
+              <label>Address: {patient.address}</label>
+            </div>
+            <div className='six columns'>
+              <button onClick={Actions.deletePatient.bind(null, patient._id)} className='button danger'>Del</button>
+              <Link className='button' to='editPatient' params={{id: patient._id}}>Edit</Link>
+              <Link className='button info' to='patientVisits' params={{id: patient._id}}>Visit</Link>
+            </div>
           </div>
+          <RouteHandler />
         </div>
       );
     } else {

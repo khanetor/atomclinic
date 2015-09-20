@@ -11,8 +11,22 @@
   margin-top: 1rem;
 }
 
-ul.scrollable {
+ul.patient-list-scrollable {
   height: 490px;
   overflow:hidden;
   overflow-y:scroll;
+}
+
+ul.no-bullet {
+  list-style-type: none;
+}
+
+.button.danger {
+  color: #ffffff;
+  background-color: #df3c3c;
+}
+
+.button.info {
+  color: #ffffff;
+  background-color: #9f46d0;
 }

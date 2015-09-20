@@ -40,8 +40,6 @@ class PatientForm extends Component {
     }
 
     this.props.formAction(newPatient, (insertedPatient) => {
-      React.findDOMNode(this.refs.name).value = null;
-      React.findDOMNode(this.refs.address).value = null;
       router.transitionTo('patientDetail', {id: insertedPatient._id});
     });
   }
@@ -86,8 +84,17 @@ class PatientForm extends Component {
 }
 
 PatientForm.propTypes = {
-  formTitle: PropTypes.string,
-  formAction: PropTypes.func
+  formTitle: PropTypes.string.isRequired,
+  formAction: PropTypes.func.isRequired,
+  patient: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    dob: PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired
+    })
+  })
 };
 
 export default PatientForm;

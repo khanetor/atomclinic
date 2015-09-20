@@ -43,3 +43,12 @@ app.on('ready', () => {
     app.quit();
   });
 });
+
+const db = require('./src/clinic/db');
+db.ensureIndex({fieldName: 'name'}, (err) => {
+  if (err) {
+    console.error('Error - Cannot index name field.');
+  } else {
+    console.log('Indexing patient name successful');
+  }
+});

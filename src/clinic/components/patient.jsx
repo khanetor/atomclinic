@@ -3,10 +3,11 @@ import { Link } from 'react-router';
 
 class Patient extends Component {
   render() {
+    let name = this.props.info.name;
     return (
       <div>
-        <Link className='button menu-item' to='patientDetail' params={{id: this.props.info._id}}>
-          <label>{this.props.info.name}</label>
+        <Link className='button menu-item u-full-width' to='patientDetail' params={{id: this.props.info._id}}>
+          <label>{name}</label>
         </Link>
       </div>
     )
@@ -15,8 +16,8 @@ class Patient extends Component {
 
 Patient.propTypes = {
   info: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
   })
 };
 
