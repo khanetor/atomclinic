@@ -48,7 +48,7 @@ class VisitDetail extends Component {
           </div>
           <div className='row'>
             <button className='danger' onClick={Actions.deleteVisit.bind(null, visitId, () => router.transitionTo('patientVisits', {id: patientId}))}>Delete</button>
-            <button>Edit</button>
+            <Link className='button' to='patientEditVisit' params={{id: patientId, visitId: visitId}}>Edit</Link>
             <Link className='button' to='patientVisits' params={{id: patientId}}>Back</Link>
           </div>
         </div>

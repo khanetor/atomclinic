@@ -10,6 +10,7 @@ import PatientInfo from './components/patientInfo';
 import PatientVisits from './components/patientVisits';
 import PatientVisitDetail from './components/patientVisitDetail';
 import PatientNewVisit from './components/newVisit';
+import PatientEditVisit from './components/editVisit';
 
 let routes = (
   <Route path='/' handler={ClinicApp}>
@@ -21,6 +22,7 @@ let routes = (
       <Route name='patientVisits' handler={PatientVisits} />
       <Route name='patientVisitDetail' path='visitDetail/:visitId' handler={PatientVisitDetail} />
       <Route name='patientNewVisit' handler={PatientNewVisit} />
+      <Route name='patientEditVisit' path='visitEdit/:visitId' handler={PatientEditVisit} />
     </Route>
     <Redirect to='welcome' />
   </Route>

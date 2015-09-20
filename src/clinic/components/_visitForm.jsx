@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link  } from 'react-router';
 import _ from 'underscore';
 
 import {months, days, years} from '../../addons/date';
@@ -74,14 +75,14 @@ class VisitForm extends Component {
     let symptom, diagnosis, test, treatment, fee, day, month, year = null;
     if (this.props.visit) {
       let visit = this.props.visit;
-      symptom = patient.symptom;
-      diagnosis = patient.diagnosis;
-      test = patient.test;
-      treatment = patient.treatment;
-      fee = patient.fee;
-      day = patient.date.day;
-      month = patient.date.month;
-      year = patient.date.year;
+      symptom = visit.symptom;
+      diagnosis = visit.diagnosis;
+      test = visit.test;
+      treatment = visit.treatment;
+      fee = visit.fee;
+      day = visit.date.day;
+      month = visit.date.month;
+      year = visit.date.year;
     }
 
     return (
@@ -105,6 +106,7 @@ class VisitForm extends Component {
           <textarea className='u-full-width' placeholder='treatment' ref='treatment' defaultValue={treatment} />
           <input type='number' className='u-full-width' placeholder='fee' ref='fee' defaultValue={fee} />
           <input className='button-primary u-pull-right' type='submit' value='Save' />
+          <Link className='button u-pull-right' to='patientVisits' params={{id: this.props.patientId}}>Cancel</Link>
         </form>
       </div>
     );
@@ -116,7 +118,16 @@ VisitForm.propTypes = {
   formAction: PropTypes.func.isRequired,
   patientId: PropTypes.string.isRequired,
   visit: PropTypes.shape({
-
+    symptom: PropTypes.string.isRequired,
+    diagnosis: PropTypes.string.isRequired,
+    test: PropTypes.string.isRequired,
+    treatment: PropTypes.string.isRequired,
+    fee: PropTypes.number.isRequired,
+    date: PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired
+    })
   })
 };
 
