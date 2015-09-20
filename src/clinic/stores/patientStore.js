@@ -8,11 +8,13 @@ class ClinicStore {
       createNewPatientCompleted: Actions.createNewPatientCompleted,
       updatePatientCompleted: Actions.updatePatientCompleted,
       loadPatientsCompleted: Actions.loadPatientsCompleted,
-      deletePatientCompleted: Actions.deletePatientCompleted
+      deletePatientCompleted: Actions.deletePatientCompleted,
+      search: Actions.search
     });
 
     this.state = {
-      patients: []
+      patients: [],
+      searchTerm: ''
     };
   }
 
@@ -35,6 +37,10 @@ class ClinicStore {
   deletePatientCompleted(id) {
     let patients = this.state.patients.filter(patient => patient._id !== id);
     this.setState({patients});
+  }
+
+  search(searchTerm) {
+    this.setState({searchTerm});
   }
 }
 

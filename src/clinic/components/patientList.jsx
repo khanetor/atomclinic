@@ -19,7 +19,13 @@ class PatientList extends Component {
   }
 
   render() {
-    let patients = this.props.patients.map(patient => <li key={patient._id}><Patient info={patient} /></li>)
+    let searchTerm = this.props.searchTerm.toLowerCase();
+      // Get list of patients
+    let patients = this.props.patients
+      // Filter patients by searchTerm
+      .filter(patient => patient.name.toLowerCase().indexOf(searchTerm) >= 0)
+      .map(patient => <li key={patient._id}><Patient info={patient} /></li>);
+
     return (
       <div id='patientList'>
         <ul className='patient-list-scrollable no-bullet'>

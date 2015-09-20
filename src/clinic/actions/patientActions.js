@@ -8,7 +8,8 @@ class PatientActions {
       'createNewPatientCompleted',
       'updatePatientCompleted',
       'loadPatientsCompleted',
-      'deletePatientCompleted'
+      'deletePatientCompleted',
+      'search'
     );
   }
 
