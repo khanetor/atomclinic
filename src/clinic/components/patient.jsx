@@ -4,6 +4,11 @@ import { Link } from 'react-router';
 class Patient extends Component {
   render() {
     let name = this.props.info.name;
+    if (name.length > 18) {
+      let length = name.length;
+      name = `${name.substring(0, 6)}...${name.substring(length - 6, length)}`;
+    }
+
     return (
       <div>
         <Link className='button menu-item u-full-width' to='patientDetail' params={{id: this.props.info._id}}>
