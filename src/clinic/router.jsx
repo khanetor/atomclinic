@@ -16,9 +16,9 @@ let routes = (
   <Route path='/' handler={ClinicApp}>
     <Route name='welcome' handler={Welcome} />
     <Route name='newPatient' handler={NewPatient} />
-    <Route name='editPatient' path='editPatient/:id' handler={EditPatient} />
     <Route name='patientDetail' path='patient/:id' handler={PatientDetail}>
       <DefaultRoute handler={PatientInfo} />
+      <Route name='editPatient' handler={EditPatient} />
       <Route name='patientVisits' handler={PatientVisits} />
       <Route name='patientVisitDetail' path='visitDetail/:visitId' handler={PatientVisitDetail} />
       <Route name='patientNewVisit' handler={PatientNewVisit} />

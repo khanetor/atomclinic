@@ -9,6 +9,8 @@ class PatientForm extends Component {
   formPatientAction(e) {
     e.preventDefault();
     let name = React.findDOMNode(this.refs.name).value;
+    let phone = React.findDOMNode(this.refs.phone).value;
+    let email = React.findDOMNode(this.refs.email).value;
     let month = parseInt(React.findDOMNode(this.refs.month).value);
     let day = parseInt(React.findDOMNode(this.refs.day).value);
     let year = parseInt(React.findDOMNode(this.refs.year).value);
@@ -33,7 +35,7 @@ class PatientForm extends Component {
       return;
     }
 
-    let newPatient = {name, dob: {month, day, year}, address};
+    let newPatient = {name, phone, email, dob: {month, day, year}, address};
 
     if (this.props.patient) {
       newPatient = _.extend(this.props.patient, newPatient);
@@ -49,10 +51,12 @@ class PatientForm extends Component {
     let dayOptions = days.map(day => <option key={day} value={day}>{day}</option>);
     let yearOptions = years.map(year =><option key={year} value={year}>{year}</option>);
 
-    let name, address, day, month, year = null;
+    let name, phone, email, address, day, month, year = null;
     if (this.props.patient) {
       let patient = this.props.patient;
       name = patient.name;
+      phone = patient.phone;
+      email = patient.email;
       address = patient.address;
       day = patient.dob.day;
       month = patient.dob.month;
@@ -64,6 +68,8 @@ class PatientForm extends Component {
         <h5>{this.props.formTitle}</h5>
         <form onSubmit={this.formPatientAction.bind(this)}>
           <input className='u-full-width' type='text' placeholder='name' ref='name' defaultValue={name} />
+          <input className='u-full-width' type='text' placeholder='phone' ref='phone' defaultValue={phone} />
+          <input className='u-full-width' type='email' placeholder='email' ref='email' defaultValue={email} />
           <div className='row'>
             <select defaultValue={month} ref='month' className='three columns'>
               {monthOptions}
@@ -88,6 +94,8 @@ PatientForm.propTypes = {
   formAction: PropTypes.func.isRequired,
   patient: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    phone: PropTypes.string,
+    email: PropTypes.string,
     address: PropTypes.string.isRequired,
     dob: PropTypes.shape({
       day: PropTypes.number.isRequired,

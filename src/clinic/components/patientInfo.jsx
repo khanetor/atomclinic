@@ -25,6 +25,8 @@ class PatientInfo extends Component {
         <div>
           <div className='row'>
             <label>Name: {patient.name}</label>
+            <label>Phone: {patient.phone}</label>
+            <label>Email: {patient.email}</label>
             <label>DOB: {months[patient.dob.month]}/{patient.dob.day}/{patient.dob.year}</label>
             <label>Address: {patient.address}</label>
           </div>
