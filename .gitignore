@@ -1,1 +1,5 @@
 node_modules
+npm-debug.log
+atomclinic-darwin-x64
+atomclinic-linux-x64
+atomclinic-win32-x64
