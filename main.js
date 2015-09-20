@@ -52,3 +52,11 @@ db.ensureIndex({fieldName: 'name'}, (err) => {
     console.log('Indexing patient name successful');
   }
 });
+
+db.ensureIndex({fieldName: 'type'}, (err) => {
+  if (err) {
+    console.error('Error - Cannot index type field.');
+  } else {
+    console.log('Indexing patient type successful');
+  }
+});
