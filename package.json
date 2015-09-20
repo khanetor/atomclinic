@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "cleanup": "rm -rf atomclinic-*-x64",
-    "pack:unix": "electron-packager . atomclinic --platform=darwin,linux --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=./icons/noun_38389_cc.icns",
-    "pack:win": "electron-packager . atomclinic --platform=win32 --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=./icons/noun_38389_cc.ico",
+    "pack:unix": "electron-packager . atomclinic --platform=darwin,linux --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=icons/noun_38389_cc.icns",
+    "pack:win": "electron-packager . atomclinic --platform=win32 --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=icons/noun_38389_cc.ico",
     "rebuild": "electron-rebuild"
   },
   "repository": {
