@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { RouteHandler, Link } from 'react-router';
 import PatientActions from '../actions/patientActions';
+import VisitActions from '../actions/visitActions';
 
 import PatientList from './patientList';
 
 class ClinicApp extends Component {
+  componentDidMount() {
+    PatientActions.loadPatients();
+    VisitActions.loadVisits();
+  }
+
   search() {
     let searchTerm = React.findDOMNode(this.refs.search).value;
     PatientActions.search(searchTerm);
@@ -25,7 +31,7 @@ class ClinicApp extends Component {
             <PatientList />
           </div>
           <div className='nine columns'>
-            <RouteHandler className='nine columns' />
+            <RouteHandler />
           </div>
         </div>
       </div>

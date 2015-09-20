@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 
 import Store from '../stores/patientStore';
-import Actions from '../actions/patientActions';
 import Patient from './patient';
 
 class PatientList extends Component {
@@ -12,10 +11,6 @@ class PatientList extends Component {
 
   static getPropsFromStores() {
     return Store.getState();
-  }
-
-  componentDidMount() {
-    Actions.loadPatients();
   }
 
   render() {

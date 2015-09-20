@@ -43,3 +43,7 @@ button.danger {
 .columns.fee {
   text-align: right;
 }
+
+div.statistics {
+  background-color: #d5d2d2;
+}

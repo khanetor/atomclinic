@@ -2,7 +2,7 @@ import React from 'react';
 import Router, { Route, Redirect, DefaultRoute } from 'react-router';
 
 import ClinicApp from './components/index';
-import Welcome from './components/welcome';
+import Statistics from './components/statistics';
 import NewPatient from './components/newPatient';
 import EditPatient from './components/editPatient';
 import PatientDetail from './components/patientDetail';
@@ -14,7 +14,7 @@ import PatientEditVisit from './components/editVisit';
 
 let routes = (
   <Route path='/' handler={ClinicApp}>
-    <Route name='welcome' handler={Welcome} />
+    <Route name='welcome' handler={Statistics} />
     <Route name='newPatient' handler={NewPatient} />
     <Route name='patientDetail' path='patient/:id' handler={PatientDetail}>
       <DefaultRoute handler={PatientInfo} />
