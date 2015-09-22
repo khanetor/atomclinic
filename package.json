@@ -5,10 +5,12 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "NODE_ENV=development electron .",
     "cleanup": "rm -rf atomclinic-*-x64",
-    "pack:unix": "electron-packager . atomclinic --platform=darwin,linux --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=icons/noun_38389_cc.icns",
+    "pack:darwin": "electron-packager . atomclinic --platform=darwin --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=icons/noun_38389_cc.icns",
+    "pack:linux": "electron-packager . atomclinic --platform=linux --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar",
     "pack:win": "electron-packager . atomclinic --platform=win32 --arch=x64 --version=0.33.0 --ignore=electron-*,.git*,rcedit --asar --icon=icons/noun_38389_cc.ico",
+    "pack:all": "npm run cleanup && npm run pack:darwin && npm run pack:linux && npm run pack:win",
     "rebuild": "electron-rebuild"
   },
   "repository": {
