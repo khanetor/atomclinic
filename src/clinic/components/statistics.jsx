@@ -25,7 +25,22 @@ class Statistics extends Component {
     if (!visitsPerPatient || visitsPerPatient === Infinity) {
       visitsPerPatient = 0;
     } else {
-      visitsPerPatient = numeral(visitsPerPatient).format('0.00');
+      visitsPerPatient = numeral(visitsPerPatient).format('0,000.00');
+    }
+
+    let totalEarning = this.props.visits.map(visit => visit.fee).reduce((x, y) => { return x+y }, 0);
+    let earningPerVisit = totalEarning / visitCount;
+    let earningPerPatient = totalEarning / patientCount;
+    totalEarning = numeral(totalEarning).format('0,000.00');
+    if (!earningPerVisit) {
+      earningPerVisit = 0;
+    } else {
+      earningPerVisit = numeral(earningPerVisit).format('0,000.00');
+    }
+    if (!earningPerPatient) {
+      earningPerPatient = 0;
+    } else {
+      earningPerPatient = numeral(earningPerPatient).format('0,000.00');
     }
 
     return (
@@ -34,6 +49,9 @@ class Statistics extends Component {
         <label>Total patients: {patientCount}</label>
         <label>Total visits: {visitCount}</label>
         <label>Visits per patient: {visitsPerPatient}</label>
+        <label>Total earning: {totalEarning} vnd</label>
+        <label>Earning per visit: {earningPerVisit} vnd/visit</label>
+        <label>Earning per patient: {earningPerPatient} vnd/patient</label>
       </div>
     );
   }
