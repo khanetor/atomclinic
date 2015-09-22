@@ -45,5 +45,6 @@ button.danger {
 }
 
 div.statistics {
+  padding: 1rem;
   background-color: #d5d2d2;
 }

@@ -18,29 +18,29 @@ class VisitForm extends Component {
     let day = parseInt(React.findDOMNode(this.refs.day).value);
     let year = parseInt(React.findDOMNode(this.refs.year).value);
 
-    // validate symptom
-    if (!symptom) {
-      alert('Symptom is missing.');
-      return;
-    }
-
-    // validate diagnosis
-    if (!diagnosis) {
-      alert('Diagnosis is missing.');
-      return;
-    }
-
-    // validate test
-    if (!test) {
-      alert('Test is missing.');
-      return;
-    }
-
-    // validate treatment
-    if (!treatment) {
-      alert('Treatment is missing.');
-      return;
-    }
+    // // validate symptom
+    // if (!symptom) {
+    //   alert('Symptom is missing.');
+    //   return;
+    // }
+    //
+    // // validate diagnosis
+    // if (!diagnosis) {
+    //   alert('Diagnosis is missing.');
+    //   return;
+    // }
+    //
+    // // validate test
+    // if (!test) {
+    //   alert('Test is missing.');
+    //   return;
+    // }
+    //
+    // // validate treatment
+    // if (!treatment) {
+    //   alert('Treatment is missing.');
+    //   return;
+    // }
 
     // validate fee
     if (!fee) {

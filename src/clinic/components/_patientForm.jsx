@@ -23,10 +23,10 @@ class PatientForm extends Component {
     }
 
     // validate address
-    if (!address) {
-      alert('Address is missing.');
-      return;
-    }
+    // if (!address) {
+    //   alert('Address is missing.');
+    //   return;
+    // }
 
     // validate date of birth
     let dob = new Date(year, month, day);

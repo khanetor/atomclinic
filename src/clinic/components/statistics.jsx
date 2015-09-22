@@ -33,7 +33,7 @@ class Statistics extends Component {
         <h5 className='u-full-width'>Statistics</h5>
         <label>Total patients: {patientCount}</label>
         <label>Total visits: {visitCount}</label>
-        <label>Total patient: {visitsPerPatient}</label>
+        <label>Visits per patient: {visitsPerPatient}</label>
       </div>
     );
   }

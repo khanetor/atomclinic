@@ -25,7 +25,7 @@ app.on('ready', () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 960,
-    height: 620
+    height: 640
   });
 
   // and load the index.html of the app.
@@ -44,21 +44,4 @@ app.on('ready', () => {
     mainWindow = null;
     app.quit();
   });
-});
-
-const db = require('./src/clinic/db');
-db.ensureIndex({fieldName: 'name'}, (err) => {
-  if (err) {
-    console.error('Error - Cannot index name field.');
-  } else {
-    console.log('Indexing patient name successful');
-  }
-});
-
-db.ensureIndex({fieldName: 'type'}, (err) => {
-  if (err) {
-    console.error('Error - Cannot index type field.');
-  } else {
-    console.log('Indexing patient type successful');
-  }
 });

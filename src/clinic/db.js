@@ -10,4 +10,20 @@ let db = new NEDB({
   autoload: true
 });
 
+db.ensureIndex({fieldName: 'name'}, (err) => {
+  if (err) {
+    console.error('Error - Cannot index name field.');
+  } else {
+    console.log('Indexing patient name successful');
+  }
+});
+
+db.ensureIndex({fieldName: 'type'}, (err) => {
+  if (err) {
+    console.error('Error - Cannot index type field.');
+  } else {
+    console.log('Indexing patient type successful');
+  }
+});
+
 module.exports = db;
